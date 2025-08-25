@@ -1,4 +1,5 @@
 venv/
-*.pyc
+*.db
 __pycache__/
-database.db
+.idea/
+*.pyc
