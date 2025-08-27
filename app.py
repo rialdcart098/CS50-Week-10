@@ -9,3 +9,10 @@ Session(app)
 @app.route("/")
 def index():
     return render_template("index.html")
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    if request.method == "POST":
+        username = request.form["username"]
+        password = request.form["password"]
+    render_template("login.html")
+
