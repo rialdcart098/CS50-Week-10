@@ -1,16 +1,30 @@
+import os
+
 from flask import url_for, Flask, session, redirect, render_template, request, url_for, jsonify
 from flask_session import Session
 from markupsafe import Markup
 from werkzeug.security import generate_password_hash, check_password_hash
-from helpers import login_required
+from helpers import login_required, get_db, close_db, user_data
 import sqlite3
 
 app = Flask(__name__)
+app.config['DATABASE'] = os.path.join(app.root_path, 'database.db')
 app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
-db = sqlite3.connect("database.db")
-cur = db.cursor()
+
+@app.teardown_appcontext
+def teardown(exception):
+    close_db(exception)
+
+@app.after_request
+def after_request(response):
+    """Ensure responses aren't cached"""
+    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    response.headers["Expires"] = 0
+    response.headers["Pragma"] = "no-cache"
+    return response
+
 
 @app.route("/")
 @login_required
@@ -26,16 +40,18 @@ def login():
                 return render_template("login.html", page="login", error=f"Please fill out your {field}.")
         username = request.form["username"]
         password = request.form["password"]
-        cur.execute("SELECT COUNT(*) FROM users WHERE username = ?", (username,))
-        if cur.fetchone()[0] != 1:
+        if not user_data(username):
             return render_template("login.html",
                 page="login",
                 error=Markup(
-                    f'User {username} does not exist. <a href="{url_for("register")}" style="color:#ff0000; text-decoration:none;">register here.</a>'
+                    f'User {username} does not exist. <a href="{url_for("signup")}" style="color:#ff0000; text-decoration:none;">register here.</a>'
                 ))
-
-
-
+        userData = user_data(username)
+        if not check_password_hash(userData, password):
+            return render_template("login.html",
+                page="login",
+                error=Markup('Wrong username/password. Try again.'))
+        session["id"] = userData["id"]
         return redirect("/")
     return render_template("login.html")
 
@@ -46,7 +62,7 @@ def signup():
         for field in ("username", "password"):
             if not request.form[field]:
                 return render_template("login.html", page="login", error=f"Missing field: {field}")
-
+    return render_template("signup.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
