@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1, width=device-width">
-
-    <title>Title</title>
+    <title>Studyr - {{ page }}</title>
+    <link href="../static/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="">
 </head>
+<nav>
+    Home
+</nav>
 <main>
-    {% block main %}{% endblock %}
+    <body>
+        {% block content %}{% endblock %}
+    </body>
 </main>
 </html>

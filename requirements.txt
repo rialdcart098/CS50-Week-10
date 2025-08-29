@@ -1,2 +1,6 @@
+flask-livereload
 Flask
 Flask-Session
+markupsafe
+pytz
+requests
