@@ -8,7 +8,12 @@
     <link rel="icon" type="image/png" href="">
 </head>
 <nav>
-    Home
+    {% if session['user_id'] %}
+        <a href="/">Home</a>
+    {% else %}
+        <a href="/login">Login</a>
+        <a href="/signup">Register</a>
+    {% endif %}
 </nav>
 <main>
     <body>

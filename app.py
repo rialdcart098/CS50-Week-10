@@ -2,9 +2,10 @@ import os
 
 from flask import url_for, Flask, session, redirect, render_template, request, url_for, jsonify
 from flask_session import Session
-from markupsafe import Markup
+from markupsafe import Markup, escape
 from werkzeug.security import generate_password_hash, check_password_hash
 from helpers import login_required, get_db, close_db, user_data
+from datetime import datetime
 import sqlite3
 
 app = Flask(__name__)
@@ -44,10 +45,11 @@ def login():
             return render_template("login.html",
                 page="login",
                 error=Markup(
-                    f'User {username} does not exist. <a href="{url_for("signup")}" style="color:#ff0000; text-decoration:none;">register here.</a>'
+                    f'User {escape(username)} does not exist. '
+                    f'<a href="{url_for("signup")}" style="color:#ff0000; text-decoration:none;">register here.</a>'
                 ))
         userData = user_data(username)
-        if not check_password_hash(userData, password):
+        if not check_password_hash(userData["password"], password):
             return render_template("login.html",
                 page="login",
                 error=Markup('Wrong username/password. Try again.'))
@@ -59,10 +61,42 @@ def login():
 def signup():
     session.clear()
     if request.method == "POST":
-        for field in ("username", "password"):
+
+        for field in ("username", "password", "confirm_password", "birth"):
             if not request.form[field]:
-                return render_template("login.html", page="login", error=f"Missing field: {field}")
-    return render_template("signup.html")
+                return render_template("signup.html", page="Sign Up", error=f"Missing field: {field}")
+        username = request.form["username"]
+        if user_data(username):
+            return render_template('signup.html',
+                page="signup",
+                error=Markup(
+                    f'User {escape(username)} already exists. '
+                    f'<a href"{url_for("/login")}" style="color:#ff0000; text-decoration:none;">log in here.</a>"'
+            ))
+        try:
+            birth = datetime.strptime(request.form["birth"], "%Y-%m-%d").date()
+        except ValueError:
+            return render_template('signup.html',
+                page="signup",
+                error=Markup(
+                    f'Birth date {escape(request.form["birth"])} is not valid. '
+                ))
+
+        if request.form["password"] != request.form["confirm_password"]:
+            return render_template('signup.html',
+                page="signup",
+                error=Markup("Passwords don't match.")
+                )
+
+
+        db = get_db()
+        user_id = db.execute("INSERT INTO users (username, password, birth) VALUES (?, ?, ?)",
+            (request.form["username"], generate_password_hash(request.form["password"]), birth)
+            ).lastrowid
+        db.commit()
+        session["id"] = user_id
+        return redirect("/")
+    return render_template("signup.html", page="signup")
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,11 +1,9 @@
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
-    email TEXT UNIQUE NOT NULL,
     password TEXT NOT NULL,
-    birth_year INTEGER NOT NULL,
-    birth_month INTEGER NOT NULL,
-    birth_day INTEGER NOT NULL,
+    birth DATE,
+    age INTEGER,
     join_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 
 );
