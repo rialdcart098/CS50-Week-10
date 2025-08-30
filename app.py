@@ -1,6 +1,6 @@
 import os
 
-from flask import url_for, Flask, session, redirect, render_template, request, url_for, jsonify
+from flask import Flask, session, redirect, render_template, request, url_for, jsonify
 from flask_session import Session
 from markupsafe import Markup, escape
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -65,7 +65,7 @@ def signup():
         ERRORS = {
             1: "username is missing",
             2: Markup(f'User {escape(request.form["username"])} already exists. '
-                f'<a href"{url_for("/login")}" style="color:#0000ff; text-decoration:none;">log in here</a>" if this is you.'),
+                f'<a href"{url_for("login")}" style="color:#0000ff; text-decoration:none;">log in here</a>" if this is you.'),
             3: "username too long/short (3 < username < 20)",
             4: "username can't have symbols.",
 
@@ -101,16 +101,17 @@ def signup():
         if valid_password(request.form["password"]) is not True:
             return render_template('signup.html',
                 page="signup",
-                error=ERRORS[valid_password(request.form["password"], request.form["confirm_password"])]
-                                   )
+                error=ERRORS[valid_password(request.form["password"], request.form["confirm_password"])])
 
         db = get_db()
         user_id = db.execute("INSERT INTO users (username, password, birth) VALUES (?, ?, ?)",
             (request.form["username"], generate_password_hash(request.form["password"]), birth)
             ).lastrowid
         db.commit()
+
         session["id"] = user_id
         return redirect("/")
+
     return render_template("signup.html", page="signup")
 
 if __name__ == "__main__":
