@@ -28,7 +28,7 @@ def after_request(response):
 
 
 @app.route("/")
-@login_required
+@login_required #Work on this once you get home
 def index():
     return render_template("index.html", page="Home")
 
@@ -98,7 +98,7 @@ def signup():
                 error=Markup(
                     f'Birth date {escape(request.form["birth"])} is not valid. '
                 ))
-        if valid_password(request.form["password"]) is not True:
+        if valid_password(request.form["password"], request.form["confirm_password"]) is not True:
             return render_template('signup.html',
                 page="signup",
                 error=ERRORS[valid_password(request.form["password"], request.form["confirm_password"])])

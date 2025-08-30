@@ -3,11 +3,11 @@ from functools import wraps
 import sqlite3
 
 
-
+# Fixed
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
-        if not session.get('user_id'):
+        if session["id"] is None:
             return redirect('/login')
         return f(*args, **kwargs)
     return wrap
@@ -49,14 +49,14 @@ def valid_password(password, confirm):
         return 6
     for char in password:
         if char.isalpha():
+            if char.isupper():
+                conditions[10] = True
             conditions[7] = True
         elif char.isdigit():
             conditions[8] = True
         elif not char.isalnum():
             conditions[9] = True
-        elif char.isupper() == char:
-            conditions[10] = True
-    for index, condition in conditions.values():
+    for index, condition in conditions.items():
         if not condition:
             return index
 
