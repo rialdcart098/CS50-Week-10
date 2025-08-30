@@ -1,4 +1,3 @@
-import string
 from flask import session, redirect, g, current_app
 from functools import wraps
 import sqlite3
@@ -30,40 +29,39 @@ def user_data(username):
     cursor.execute('SELECT * FROM users WHERE username = ?', (username,))
     return cursor.fetchone()
 
-def valid_username(username):
+def valid_username(username=None):
     if not username:
-        return False
-    if not user_data(username):
-        return False
+        return 1
+    if user_data(username):
+        return 2
     if len(username) < 3 or len(username) > 20:
-        return False
+        return 3
     for char in username:
-        if not char.isalpha() or not char.isnum():
-            return False
+        if not char.isalnum():
+            return 4
     return True
 
-def valid_password(password):
+def valid_password(password, confirm):
     if not password:
-        return False
-    character = False
-    number = False
-    Symbol = False
-    Capital = False
+        return 5
+    conditions = {7: False, 8: False, 9: False, 10: False}
     if len(password) < 8:
-        return False
+        return 6
     for char in password:
         if char.isalpha():
-            character = True
+            conditions[7] = True
         elif char.isdigit():
-            number = True
+            conditions[8] = True
         elif not char.isalnum():
-            Symbol = False
+            conditions[9] = True
         elif char.isupper() == char:
-            character = True
-    if all([character, number, Symbol, Capital]):
-        return True
-    return False
+            conditions[10] = True
+    for index, condition in conditions.values():
+        if not condition:
+            return index
 
-def valid_date(date):
-    if not date:
-        return False
+    if not confirm:
+        return 11
+    elif password != confirm:
+        return 12
+    return True
