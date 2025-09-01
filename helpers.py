@@ -7,7 +7,7 @@ import sqlite3
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
-        if session["id"] is None:
+        if not session.get("id"):
             return redirect('/login')
         return f(*args, **kwargs)
     return wrap

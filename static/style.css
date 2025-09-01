@@ -1,4 +1,120 @@
+nav
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+
+.nav-side
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+button[type="submit"]
+{
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 1px;
+    border-radius: 0.5rem;
+    background-color: #3434d0;
+
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover
+{
+    background-color: #2323a0;
+}
+body
+{
+    background-color: #020202;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url('bg_images/backgroundImage.png');
+    background-size: cover;
+    background-position: center;
+}
 .error
 {
     color: #cd3d3d;
+}
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+    height: 100vh;
+    max-width: 37rem;
+    margin: auto;
+    background: none;
+    padding: 2rem;
+    border-radius: 10rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+}
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 28rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-style: solid;
+    border-color: aliceblue;
+    border-width: 0.25rem;
+    border-radius: 2rem;
+    background-color: rgb(249, 249, 249, 0.8);
+    box-sizing: border-box;
+}
+
+@media (max-width: 600px) {
+    .box {
+        max-width: 95vw;
+        padding: 1rem;
+    }
+}
+.title
+{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+a
+{
+    color: #3434d0;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    font-weight: bold;
+}
+a:hover
+{
+    background: rgba(52, 52, 208, 0.1);
+    border-radius: 0.5rem;
+}
+footer
+{
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    bottom: 0;
+    width: 100%;
 }

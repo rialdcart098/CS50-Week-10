@@ -1,37 +1,45 @@
 {% extends 'layout.html' %}
 {% block content %}
+<body>
+    <div class="container">
+        <div class="box">
+                <form method="POST" action="/signup">
+        <div class="form-group">
+            <div>
+                <h1 class="title">Sign Up</h1>
+            </div>
 
-<form method="POST" action="/signup">
-    <div class="form-group">
-        <h1>Sign Up</h1>
-        <div>
-            <h2>Username</h2>
-            <input type="text" name="username" placeholder="Username">
-        </div>
-        <div>
-            <h2>Password</h2>
-             <input type="password" name="password" placeholder="Password">
-        </div>
-        <div>
-            <h2>Confirm Password</h2>
-            <input type="password" name="confirm_password" placeholder="Confirm Password">
-        </div>
+            <div>
+                <h2>Username</h2>
+                <input type="text" name="username" placeholder="Username">
+            </div>
+            <div>
+                <h2>Password</h2>
+                 <input type="password" name="password" placeholder="Password">
+            </div>
+            <div>
+                <h2>Confirm Password</h2>
+                <input type="password" name="confirm_password" placeholder="Confirm Password">
+            </div>
 
-        <div>
-            <h2>Date of Birth: </h2>
-            <input type="date" name="birth" placeholder="Date of Birth">
-        </div>
+            <div>
+                <h2>Date of Birth: </h2>
+                <input type="date" name="birth" placeholder="Date of Birth">
+            </div>
 
-        <button type="submit">Sign Up</button>
-        <div>
-            <h2>Already have an account? <a href="/login">Log in here.</a></h2>
+            <button type="submit">Sign Up</button>
+            <div>
+                <p>Already have an account? <a href="/login">Log in here.</a></p>
+            </div>
+
+        </div>
+    </form>
+            <h3 class="error">
+        {% if error %}
+            {{ error|safe }}
+        {% endif %}
+    </h3>
         </div>
     </div>
-</form>
-
-<h3 class="error">
-    {% if error %}
-        {{ error|safe }}
-    {% endif %}
-</h3>
+</body>
 {% endblock %}

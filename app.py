@@ -6,6 +6,7 @@ from markupsafe import Markup, escape
 from werkzeug.security import generate_password_hash, check_password_hash
 from helpers import login_required, get_db, close_db, user_data, valid_username, valid_password
 from datetime import datetime
+from routes.quiz import quiz_bp
 import sqlite3
 
 app = Flask(__name__)
@@ -13,6 +14,9 @@ app.config['DATABASE'] = os.path.join(app.root_path, 'database.db')
 app.config["SESSION_PERMANENT"] = True
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
+
+app.register_blueprint(quiz_bp)
+
 
 @app.teardown_appcontext
 def teardown(exception):
@@ -65,7 +69,7 @@ def signup():
         ERRORS = {
             1: "username is missing",
             2: Markup(f'User {escape(request.form["username"])} already exists. '
-                f'<a href"{url_for("login")}" style="color:#0000ff; text-decoration:none;">log in here</a>" if this is you.'),
+                f'<a href="{url_for("login")}">log in here</a>" if this is you.'),
             3: "username too long/short (3 < username < 20)",
             4: "username can't have symbols.",
 

@@ -8,16 +8,28 @@
     <link rel="icon" type="image/png" href="">
 </head>
 <nav>
-    {% if session['user_id'] %}
-        <a href="/">Home</a>
-    {% else %}
-        <a href="/login">Login</a>
-        <a href="/signup">Register</a>
-    {% endif %}
+    <div class="nav-side">
+        {% if session['id'] %}
+            <a href="/">Home</a>
+            <a href="/quizzes">Quizzes</a>
+            <a href="/review">Review</a>
+<!--    TBA    <a href="/profile">Profile</a>-->
+<!--        <a href="/logout">Logout</a>-->
+        {% else %}
+            <a href="/login">Login</a>
+            <a href="/signup">Register</a>
+        {% endif %}
+    </div>
+    <div class="nav-side">
+        <a href="/support">Support</a>
+        <a href="/contribute">Contribute</a>
+    </div>
+
 </nav>
 <main>
-    <body>
-        {% block content %}{% endblock %}
-    </body>
+    {% block content %}{% endblock %}
 </main>
+<footer>
+    <p>© 2025 Studyr. All rights reserved.</p>
+</footer>
 </html>

@@ -1,0 +1,131 @@
+{
+  "exam": "Geometry Regents - June 2025",
+  "questions": [
+    {
+      "id": 1,
+      "question": "The perimeter of a triangle is 18. What is the perimeter of a similar triangle after a dilation with a scale factor of 3?",
+      "choices": {
+        "A": "6",
+        "B": "18",
+        "C": "54",
+        "D": "162"
+      },
+      "unit": 7,
+      "answer": "C",
+      "explanation": "Perimeter scales by the scale factor: 18 × 3 = 54.",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "question": "At a point 200 feet from the Washington Monument, the angle of elevation to the top is 70.19°. What is the height of the monument?",
+      "choices": {
+        "A": "188",
+        "B": "213",
+        "C": "555",
+        "D": "590"
+      },
+      "unit": 8,
+      "answer": "C",
+      "explanation": "Use tan(70.19°) = height / 200 ⇒ height ≈ 555 ft.",
+      "image": "images/q2.png"
+    },
+    {
+      "id": 3,
+      "question": "On the set of axes, ΔEQA, and ΔSUL are graphed. Which sequence of transformations shows that triangle ΔEQA ≅ ΔSUL?",
+      "choices": {
+        "A": "Rotate ΔEQA 90° clockwise, then translate 9 units right and 1 unit down",
+        "B": "Rotate ΔEQA 90° counterclockwise about the origin, then reflect over the line x = 4",
+        "C": "Reflect ΔEQA over the x-axis, then rotate 90° clockwise about the origin",
+        "D": "Translate ΔEQA 10 units right and then reflect over the line x = -1"
+      },
+      "unit": 3,
+      "answer": "A",
+      "explanation": "When looking for the answer, you must remember to also keep the orientation of the triangle the same, while also keeping the same shape. The only answer choice that does this is A.",
+      "image": "images/q3.png"
+    },
+    {
+      "id": 4,
+      "question": "If two sides of a triangle have lengths of 2 and 8, the length of the third side could be:",
+      "choices": {
+        "A": "10",
+        "B": "7",
+        "C": "6",
+        "D": "4"
+      },
+      "unit": 1,
+      "answer": "B",
+      "explanation": "When doing this type of question, remember the third side must be greater than the difference of the two sides and less than the sum of the two sides: 8 - 2 < x < 8 + 2 ⇒ 6 < x < 10. So, the only possible answer is 7.",
+      "image": ""
+    },
+    {
+      "id": 5,
+      "question": "A regular octagon is rotated about its center. WHich angle measure will carry the octagon onto itself?",
+      "choices": {
+        "A": "36",
+        "B": "90",
+        "C": "144",
+        "D": "160"
+      },
+      "unit": 2,
+      "answer": "B",
+      "explanation": "A regular octagon has 8 sides, so the angle of rotation that maps it onto itself is 360°/8 = 45°. However, since we are looking for an angle that will carry the octagon onto itself, we need to consider multiples of 45°. The correct answer is 90° (which is 2 × 45°).",
+      "image": ""
+    },
+    {
+      "id": 6,
+      "question": "An equestion of a circle is x^2+y^2-6x+2y=14. What are the coordinates of the center and what is the length of the radius of the circle?",
+      "choices": {
+        "A": "(-3, 1), and radius is 5",
+        "B": "(3, -1), and radius is 5",
+        "C": "(-3, -1), and radius is √24",
+        "D": "(3, -1), and radius is √24"
+      },
+      "unit": 8,
+      "answer": "D",
+      "explanation": "To find the center and radius, we need to rewrite the equation in standard form. Completing the square for both x and y terms gives us (x - 3)² + (y + 1)² = 24. Thus, the center is (3, -1) and the radius is √24.",
+      "image": ""
+    },
+    {
+      "id": 7,
+      "question": "In ΔHSF below, ∠S = 90°, HF = 30°, and FS = 23. What is m∠H to the nearest degree?",
+      "choices": {
+        "A": "53",
+        "B": "50",
+        "C": "40",
+        "D": "37"
+      },
+      "unit": 8,
+      "answer": "C",
+      "explanation": "Using the sine function: sin(∠H) = opposite/hypotenuse = FS/HF = 23/30. Therefore, ∠H = sin^(-1)(23/30) ≈ 40°.",
+      "image": "images/q7.png"
+    },
+    {
+      "id": 8,
+      "question": "In ΔCAB below, midsegments DE, EF, and FD are drawn. If CA = 14, CB = 20, and FB = 9, what is the perimeter of quadrilateral DEFA?",
+      "choices": {
+        "A": "26",
+        "B": "32",
+        "C": "44",
+        "D": "52"
+      },
+      "unit": 6,
+      "answer": "B",
+      "explanation": "To get EF, you can do 1/2 of CB, as midsegments are half the length of the side they are parallel to, resulting in a length of 7. This also makes DA 7 as DA is parallel to CB in a parallelogram, and in a parallelogram, opposite sides are congruent. To get AF, it is just the same as FB as it is split in half by line EF, which is also 9. This also makes DE 9 because DE is parallel to CA. Adding all the sides, you get 32 as the perimeter..",
+      "image": "images/q8.png"
+    },
+    {
+      "id": 9,
+      "question": "A candle can be modeled by a pyramid with a square base, as shown below. The height of the candle is 10 cm and each side of the base measures 6 cm. If the candle wax burns at a rate of 3.5 cubic centimeters per hour, what is the approximate number of hours this candle could burn?",
+      "choices": {
+        "A": "103",
+        "B": "151",
+        "C": "34",
+        "D": "11,"
+      },
+      "unit": 10,
+      "answer": "C",
+      "explanation": "The volume V of a pyramid is given by V = (1/3)Bh, where B is the area of the base and h is the height. The area of the square base is 6 cm × 6 cm = 36 cm². Therefore, the volume of the candle is V = (1/3)(36 cm²)(10 cm) = 120 cm³. If the candle burns at a rate of 3.5 cm³ per hour, the number of hours it can burn is 120 cm³ / 3.5 cm³/hour ≈ 34.29 hours, which rounds to approximately 34 hours.",
+      "image": "images/q9.png"
+    }
+  ]
+}
