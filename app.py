@@ -30,6 +30,11 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+@app.route("/logout")
+@login_required
+def logout():
+    session.clear()
+    return redirect("/login")
 
 @app.route("/")
 @login_required #Work on this once you get home
