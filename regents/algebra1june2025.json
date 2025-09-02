@@ -1,0 +1,131 @@
+{
+  "exam": "Algebra 1 - June 2025",
+  "questions": [
+    {
+      "id": 1,
+      "question": "The perimeter of a triangle is 18. What is the perimeter of a similar triangle after a dilation with a scale factor of 3?",
+      "choices": {
+        "A": "6",
+        "B": "18",
+        "C": "54",
+        "D": "162"
+      },
+      "unit": 7,
+      "answer": "C",
+      "explanation": "Perimeter scales by the scale factor: 18 × 3 = 54.",
+      "image": ""
+    },
+    {
+      "id": 2,
+      "question": "Solve for x: 3x + 5 = 20",
+      "choices": {
+        "A": "3",
+        "B": "5",
+        "C": "15",
+        "D": "25"
+      },
+      "unit": 1,
+      "answer": "A",
+      "explanation": "Subtract 5 from both sides: 3x = 15 ⇒ x = 5",
+      "image": ""
+    },
+    {
+      "id": 3,
+      "question": "Factor the quadratic: x^2 + 5x + 6",
+      "choices": {
+        "A": "(x + 2)(x + 3)",
+        "B": "(x + 1)(x + 6)",
+        "C": "(x - 2)(x - 3)",
+        "D": "(x - 1)(x - 6)"
+      },
+      "unit": 2,
+      "answer": "A",
+      "explanation": "Find two numbers that multiply to 6 and add to 5: 2 and 3.",
+      "image": ""
+    },
+    {
+      "id": 4,
+      "question": "Solve for y: 2y/3 - 4 = 6",
+      "choices": {
+        "A": "9",
+        "B": "15",
+        "C": "6",
+        "D": "3"
+      },
+      "unit": 1,
+      "answer": "B",
+      "explanation": "2y/3 - 4 = 6 ⇒ 2y/3 = 10 ⇒ y = 15",
+      "image": ""
+    },
+    {
+      "id": 5,
+      "question": "Simplify: 5(x - 2) + 3",
+      "choices": {
+        "A": "5x - 10 + 3",
+        "B": "5x - 7",
+        "C": "5x + 10 + 3",
+        "D": "5x + 7"
+      },
+      "unit": 1,
+      "answer": "B",
+      "explanation": "Distribute 5: 5x - 10 + 3 ⇒ 5x - 7",
+      "image": ""
+    },
+    {
+      "id": 6,
+      "question": "If f(x) = 2x + 1, what is f(3)?",
+      "choices": {
+        "A": "5",
+        "B": "6",
+        "C": "7",
+        "D": "8"
+      },
+      "unit": 2,
+      "answer": "C",
+      "explanation": "f(3) = 2(3) + 1 = 6 + 1 = 7",
+      "image": ""
+    },
+    {
+      "id": 7,
+      "question": "Solve the inequality: 4x - 7 < 9",
+      "choices": {
+        "A": "x < 4",
+        "B": "x > 4",
+        "C": "x < 16",
+        "D": "x > 16"
+      },
+      "unit": 1,
+      "answer": "A",
+      "explanation": "4x - 7 < 9 ⇒ 4x < 16 ⇒ x < 4",
+      "image": ""
+    },
+    {
+      "id": 8,
+      "question": "Simplify the expression: 3x + 2x - 5",
+      "choices": {
+        "A": "5x - 5",
+        "B": "6x - 5",
+        "C": "x - 5",
+        "D": "5x + 5"
+      },
+      "unit": 1,
+      "answer": "B",
+      "explanation": "Combine like terms: 3x + 2x - 5 = 5x - 5",
+      "image": ""
+    },
+    {
+      "id": 9,
+      "question": "Evaluate: 2(3x - 4) + 5 when x = 3",
+      "choices": {
+        "A": "7",
+        "B": "9",
+        "C": "11",
+        "D": "13"
+      },
+      "unit": 1,
+      "answer": "C",
+      "explanation": "2(3*3 - 4) + 5 = 2(9 - 4) + 5 = 2*5 + 5 = 10 + 5 = 15",
+      "image": ""
+    }
+  ]
+}
