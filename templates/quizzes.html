@@ -1,7 +1,7 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<body>
+<body class="main-body">
 
 
 <div class="page-container">
@@ -9,55 +9,14 @@
         <h1 class="title">Quizzes</h1>
     </div>
     <div class="top-right">
-        <ul>
+        <ul id="quiz-list">
 
         </ul>
     </div>
     <div class="page-main">
         <input type="search" name="search" id="search" placeholder="Search Subjects">
-
-        <script>
-            const subjects = ["algebra1", "geometry", "algebra2", "biology", "chemistry", "physics"];
-            const container = document.querySelector(".page-main");
-
-            subjects.forEach(subject => {
-                const button = document.createElement("button");
-                button.type = "button";
-                button.name = subject;
-                button.textContent = subject.replace(/\d+/g, " $&").toUpperCase();
-                button.style.width = "100%"; // keeps buttons full width
-                button.onclick = () => loadQuiz(subject);
-                container.appendChild(button);
-            });
-
-            const searchInput = document.querySelector('input[name="search"]');
-            searchInput.addEventListener('input', () => {
-                const searchTerm = searchInput.value.toLowerCase();
-                document.querySelectorAll(".page-main button").forEach(button => {
-                    button.style.display = button.name.toLowerCase().includes(searchTerm) ? 'inline-block' : 'none';
-                });
-            });
-
-            // Load JSON
-            function loadQuiz(subject) {
-                fetch(`/quizzes/${subject}.json`)
-                    .then(res => res.json())
-                    .then(data => renderQuiz(data))
-                    .catch(err => console.error("Failed to load quiz:", err));
-            }
-
-            // Render quiz
-            function renderQuiz(data) {
-                const quizList = document.getElementById("quiz-list");
-                quizList.innerHTML = ""; // clear old questions
-                data.questions.forEach(q => {
-                    const li = document.createElement("li");
-                    li.textContent = q.question;
-                    quizList.appendChild(li);
-                });
-            }
-        </script>
     </div>
 </div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 {% endblock %}
