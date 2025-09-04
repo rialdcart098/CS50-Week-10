@@ -1,6 +1,8 @@
 from flask import session, redirect, g, current_app
 from functools import wraps
 import sqlite3
+import json
+import os
 
 
 # Fixed
@@ -65,3 +67,10 @@ def valid_password(password, confirm):
     elif password != confirm:
         return 12
     return True
+
+def load_json(filename):
+    file = f'quizzes/{filename}.json'
+    if not os.path.exists(file):
+        raise FileNotFoundError
+    with open(file, 'r') as f:
+        return json.load(f)

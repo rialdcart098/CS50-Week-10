@@ -1,5 +1,5 @@
-from flask import Flask, Blueprint, render_template, session
-from helpers import login_required
+from flask import Flask, Blueprint, render_template, session, jsonify, redirect
+from helpers import login_required, load_json
 
 app = Flask(__name__)
 
@@ -13,4 +13,4 @@ def quiz_home():
 @quiz_bp.route("/<quizname>")
 @login_required
 def quiz_page(quizname):
-    return render_template("quiz-page.html", page="Quiz", exam=quizname)
+    return render_template("quiz-page.html", quizname=quizname)

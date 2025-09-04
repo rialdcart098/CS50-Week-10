@@ -8,9 +8,12 @@
 </head>
 <body class="quiz-body">
     <div class="quiz-header">
-        <h1 class="title" id="question">Question Text</h1>
+        <h1 class="title" id="question"></h1>
     </div>
     <div class="quiz-questions">
+        <div class="quiz-question">
+        </div>
+        <div class="quiz-stimulus"></div>
 
     </div>
     <div class="quiz-options">
@@ -22,5 +25,6 @@
     <div class="quiz-footer">
         <button class="quiz-submit" id="submit">Submit</button>
     </div>
+    <script src="{{ url_for('static', filename='quiz.js') }}"></script>
 </body>
 </html>
