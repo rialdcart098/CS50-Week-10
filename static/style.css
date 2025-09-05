@@ -202,12 +202,46 @@ button[class="quiz-button"] {
 }
 
 .wrong {
-    background-color: #ff4d4d;
+    font-family: "Manrope", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    border-bottom: 0.25rem solid #6a1212;
+    background-color: #8c1818;
     color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0.5rem;
+    box-shadow: 0 0 15px rgba(140, 24, 24);
+    white-space: normal;   /* allow line breaks */
+    word-break: break-word; /* break long words */
+    text-align: center;
 }
 .right {
-    background-color: #4caf50;
+    font-family: "Manrope", sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 1rem;
+    border-bottom: 0.25rem solid #36622b;
+    background-color: #79cb63;
     color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0.5rem;
+    box-shadow: 0 0 15px rgb(104, 208, 52);
+    white-space: normal;   /* allow line breaks */
+    word-break: break-word; /* break long words */
+    text-align: center;
 }
 .quiz-body {
     font-family: "Manrope", sans-serif;
@@ -293,7 +327,7 @@ button[class="quiz-button"] {
     font-size: 1.5rem;
     font-weight: bold;
     background: none;
-    background-color: #cd3d3d;
+    background-color: rgba(240, 240, 240, 0.8);
     border: none;
     border-top-right-radius: 1rem;
     border-top-left-radius: 1rem;
@@ -333,6 +367,10 @@ button[class="quiz-button"] {
     word-break: break-word; /* break long words */
     text-align: center;
 }
-
-
+.quiz-explanation {
+    grid-column: 1 / 5;
+    justify-self: center;
+    justify-content: center;
+    grid-row: 1 / 2;
+}
 

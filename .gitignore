@@ -4,3 +4,4 @@ __pycache__/
 .idea/
 *.pyc
 flask_session/
+/static/regents/images/none.png

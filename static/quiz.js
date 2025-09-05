@@ -1,5 +1,6 @@
 let quiz = null;
-
+let i = 0;
+buttonPressed = false;
 document.addEventListener('DOMContentLoaded', () => {
   const pathParts = window.location.pathname.split('/');
   const quizName = pathParts[pathParts.length - 1];
@@ -19,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return res.json();
     })
     .then(data => {
-      console.log('Quiz JSON loaded:', data);
       quiz = data;
       showQuiz();
     })
@@ -31,19 +31,89 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function showQuiz() {
-    let quizTitle = document.getElementsByClassName('title');
-    if (quizTitle.length > 0) {
-        quizTitle[0].textContent = quiz.exam;
+    if (!quiz || i >= quiz.questions.length) {
+        window.location.href="/results";
+        return;
     }
-    let question = document.getElementsByClassName('quiz-question');
-    if (question.length > 0) {
-        question[0].textContent = quiz.questions[1].question;
+
+    let title = document.querySelector('.title');
+    if (title){
+        title.textContent = quiz.exam;
     }
-    let imageDiv = document.getElementsByClassName('quiz-stimulus');
-    if (imageDiv.length > 0 && quiz.questions[1].image) {
-        let img = document.createElement('img');
-        img.src = `/static/regents/${quiz.questions[1].image}`;
+
+    let questionDiv = document.querySelector('.quiz-question');
+    if (questionDiv) {
+        questionDiv.textContent = quiz.questions[i].question;
+    }
+    let optionsDiv = document.querySelector('.quiz-options');
+    optionsDiv.innerHTML = '';
+
+    buttonPressed = false;
+
+    const choices = quiz.questions[i].choices;
+    Object.entries(choices).forEach(([key, value]) => {
+        const button = document.createElement('button');
+        button.textContent = value
+        button.classList.add('quiz-option');
+        button.onclick = () => {
+            if (!buttonPressed) {
+                answerCheck(key, button);
+                buttonPressed = true;
+            }
+
+        }
+        optionsDiv.appendChild(button);
+    });
+
+    let imageDiv = document.querySelector('.quiz-stimulus');
+    imageDiv.innerHTML = '';
+    if (quiz.questions[i].image) {
+        const img = document.createElement('img');
+        img.src = `/static/regents/${quiz.questions[i].image}`;
         img.alt = 'Question Image';
-        imageDiv[0].appendChild(img);
+        img.style.maxWidth = '100%';
+        imageDiv.appendChild(img);
     }
+
+}
+function answerCheck(selected, button) {
+    const footer = document.querySelector('.quiz-footer');
+    const explanation = document.createElement('h5')
+    explanation.textContent = quiz.questions[i].explanation;
+    explanation.classList.add('quiz-explanation');
+    const next = document.createElement('button');
+    if (i === quiz.questions.length - 1 ){
+        next.textContent = 'Finish';
+    } else{
+        next.textContent = 'Next';
+    }
+
+    next.classList.add('quiz-submit');
+    const correct = quiz.questions[i].answer;
+
+    if (selected === correct) {
+        button.classList.replace('quiz-option', 'right');
+    } else {
+        button.classList.replace('quiz-option', 'wrong');
+    }
+    if (!footer.querySelector('.quiz-submit')) {
+        footer.appendChild(explanation);
+        footer.appendChild(next);
+    }
+
+    const optionDiv = document.querySelector('.quiz-options');
+    const buttons = optionDiv.querySelectorAll('.quiz-option');
+    buttons.forEach(btn => {
+        if (btn.textContent === quiz.questions[i].choices[correct]) {
+            btn.classList.replace('quiz-option', 'right');
+        }
+    })
+
+
+    next.addEventListener('click', () => {
+        explanation.remove();
+        next.remove();
+        i++;
+        showQuiz();
+    });
 }

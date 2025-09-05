@@ -3,129 +3,129 @@
   "questions": [
     {
       "id": 1,
-      "question": "The perimeter of a triangle is 18. What is the perimeter of a similar triangle after a dilation with a scale factor of 3?",
+      "question": "Solve for x: 2x + 5 = 15",
       "choices": {
-        "A": "6",
-        "B": "18",
-        "C": "54",
-        "D": "162"
+        "A": "5",
+        "B": "10",
+        "C": "7.5",
+        "D": "2.5"
       },
-      "unit": 7,
-      "answer": "C",
-      "explanation": "Perimeter scales by the scale factor: 18 × 3 = 54.",
-      "image": ""
+      "unit": 1,
+      "answer": "A",
+      "explanation": "2x + 5 = 15 ⇒ 2x = 10 ⇒ x = 5",
+      "image": "images/none.png"
     },
     {
       "id": 2,
-      "question": "Solve for x: 3x + 5 = 20",
+      "question": "Factor the quadratic: x^2 + 7x + 12",
       "choices": {
-        "A": "3",
-        "B": "5",
-        "C": "15",
-        "D": "25"
+        "A": "(x + 3)(x + 4)",
+        "B": "(x + 2)(x + 6)",
+        "C": "(x - 3)(x - 4)",
+        "D": "(x - 2)(x - 6)"
       },
-      "unit": 1,
+      "unit": 2,
       "answer": "A",
-      "explanation": "Subtract 5 from both sides: 3x = 15 ⇒ x = 5",
-      "image": ""
+      "explanation": "Find two numbers that multiply to 12 and add to 7: 3 and 4.",
+      "image": "images/none.png"
     },
     {
       "id": 3,
-      "question": "Factor the quadratic: x^2 + 5x + 6",
+      "question": "Simplify: 4(x - 2) + 7",
       "choices": {
-        "A": "(x + 2)(x + 3)",
-        "B": "(x + 1)(x + 6)",
-        "C": "(x - 2)(x - 3)",
-        "D": "(x - 1)(x - 6)"
+        "A": "4x - 8 + 7",
+        "B": "4x - 1",
+        "C": "4x + 9",
+        "D": "4x - 9"
       },
-      "unit": 2,
-      "answer": "A",
-      "explanation": "Find two numbers that multiply to 6 and add to 5: 2 and 3.",
-      "image": ""
+      "unit": 1,
+      "answer": "B",
+      "explanation": "Distribute 4: 4x - 8 + 7 = 4x - 1",
+      "image": "images/none.png"
     },
     {
       "id": 4,
-      "question": "Solve for y: 2y/3 - 4 = 6",
+      "question": "Solve for y: 3y/4 - 2 = 4",
       "choices": {
-        "A": "9",
-        "B": "15",
-        "C": "6",
-        "D": "3"
+        "A": "6",
+        "B": "8",
+        "C": "4",
+        "D": "10"
       },
       "unit": 1,
       "answer": "B",
-      "explanation": "2y/3 - 4 = 6 ⇒ 2y/3 = 10 ⇒ y = 15",
-      "image": ""
+      "explanation": "3y/4 - 2 = 4 ⇒ 3y/4 = 6 ⇒ y = 8",
+      "image": "images/none.png"
     },
     {
       "id": 5,
-      "question": "Simplify: 5(x - 2) + 3",
+      "question": "If f(x) = 3x - 2, what is f(4)?",
       "choices": {
-        "A": "5x - 10 + 3",
-        "B": "5x - 7",
-        "C": "5x + 10 + 3",
-        "D": "5x + 7"
+        "A": "10",
+        "B": "12",
+        "C": "14",
+        "D": "16"
       },
-      "unit": 1,
-      "answer": "B",
-      "explanation": "Distribute 5: 5x - 10 + 3 ⇒ 5x - 7",
-      "image": ""
+      "unit": 2,
+      "answer": "A",
+      "explanation": "f(4) = 3*4 - 2 = 12 - 2 = 10",
+      "image": "images/none.png"
     },
     {
       "id": 6,
-      "question": "If f(x) = 2x + 1, what is f(3)?",
+      "question": "Solve the inequality: 5x + 3 < 18",
       "choices": {
-        "A": "5",
-        "B": "6",
-        "C": "7",
-        "D": "8"
-      },
-      "unit": 2,
-      "answer": "C",
-      "explanation": "f(3) = 2(3) + 1 = 6 + 1 = 7",
-      "image": ""
-    },
-    {
-      "id": 7,
-      "question": "Solve the inequality: 4x - 7 < 9",
-      "choices": {
-        "A": "x < 4",
-        "B": "x > 4",
-        "C": "x < 16",
-        "D": "x > 16"
+        "A": "x < 3",
+        "B": "x > 3",
+        "C": "x < 5",
+        "D": "x > 5"
       },
       "unit": 1,
       "answer": "A",
-      "explanation": "4x - 7 < 9 ⇒ 4x < 16 ⇒ x < 4",
-      "image": ""
+      "explanation": "5x + 3 < 18 ⇒ 5x < 15 ⇒ x < 3",
+      "image": "images/none.png"
+    },
+    {
+      "id": 7,
+      "question": "Combine like terms: 7x + 2 - 3x + 5",
+      "choices": {
+        "A": "4x + 7",
+        "B": "10x + 7",
+        "C": "4x + 3",
+        "D": "10x + 3"
+      },
+      "unit": 1,
+      "answer": "A",
+      "explanation": "7x - 3x + 2 + 5 = 4x + 7",
+      "image": "images/none.png"
     },
     {
       "id": 8,
-      "question": "Simplify the expression: 3x + 2x - 5",
+      "question": "Solve for x: x/2 + 7 = 11",
       "choices": {
-        "A": "5x - 5",
-        "B": "6x - 5",
-        "C": "x - 5",
-        "D": "5x + 5"
+        "A": "4",
+        "B": "8",
+        "C": "2",
+        "D": "9"
       },
       "unit": 1,
       "answer": "B",
-      "explanation": "Combine like terms: 3x + 2x - 5 = 5x - 5",
-      "image": ""
+      "explanation": "x/2 + 7 = 11 ⇒ x/2 = 4 ⇒ x = 8",
+      "image": "images/none.png"
     },
     {
       "id": 9,
-      "question": "Evaluate: 2(3x - 4) + 5 when x = 3",
+      "question": "Evaluate: 2(x + 3) - 5 when x = 6",
       "choices": {
-        "A": "7",
-        "B": "9",
-        "C": "11",
-        "D": "13"
+        "A": "11",
+        "B": "12",
+        "C": "13",
+        "D": "14"
       },
       "unit": 1,
       "answer": "C",
-      "explanation": "2(3*3 - 4) + 5 = 2(9 - 4) + 5 = 2*5 + 5 = 10 + 5 = 15",
-      "image": ""
+      "explanation": "2(6 + 3) - 5 = 2*9 - 5 = 18 - 5 = 13",
+      "image": "images/none.png"
     }
   ]
 }

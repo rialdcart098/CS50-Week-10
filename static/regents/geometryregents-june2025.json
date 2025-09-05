@@ -13,11 +13,11 @@
       "unit": 7,
       "answer": "C",
       "explanation": "Perimeter scales by the scale factor: 18 × 3 = 54.",
-      "image": ""
+      "image": "images/none.png"
     },
     {
       "id": 2,
-      "question": "At a point 200 feet from the Washington Monument, the angle of elevation to the top is 70.19°. What is the height of the monument?",
+      "question": "At a point 200 feet from the Washington Monument, the angle of elevation to the top is 70.19°. What is the height of the monument? Round to the nearest whole.",
       "choices": {
         "A": "188",
         "B": "213",
@@ -26,7 +26,7 @@
       },
       "unit": 8,
       "answer": "C",
-      "explanation": "Use tan(70.19°) = height / 200 ⇒ height ≈ 555 ft.",
+      "explanation": "For tangent, use TOA (tan = opposite/adjacent). This makes tan(70.19°) / 1 = height / 200 ⇒ cross multiply to get height = tan(70.19°) * 200 ⇒ height ≈ 555",
       "image": "images/q2.png"
     },
     {
@@ -55,11 +55,11 @@
       "unit": 1,
       "answer": "B",
       "explanation": "When doing this type of question, remember the third side must be greater than the difference of the two sides and less than the sum of the two sides: 8 - 2 < x < 8 + 2 ⇒ 6 < x < 10. So, the only possible answer is 7.",
-      "image": ""
+      "image": "images/none.png"
     },
     {
       "id": 5,
-      "question": "A regular octagon is rotated about its center. WHich angle measure will carry the octagon onto itself?",
+      "question": "A regular octagon is rotated about its center. Which angle measure will carry the octagon onto itself?",
       "choices": {
         "A": "36",
         "B": "90",
@@ -69,11 +69,11 @@
       "unit": 2,
       "answer": "B",
       "explanation": "A regular octagon has 8 sides, so the angle of rotation that maps it onto itself is 360°/8 = 45°. However, since we are looking for an angle that will carry the octagon onto itself, we need to consider multiples of 45°. The correct answer is 90° (which is 2 × 45°).",
-      "image": ""
+      "image": "imgaes/none.png"
     },
     {
       "id": 6,
-      "question": "An equestion of a circle is x^2+y^2-6x+2y=14. What are the coordinates of the center and what is the length of the radius of the circle?",
+      "question": "An equation of a circle is x²+y²-6x+2y=14. What are the coordinates of the center and what is the length of the radius of the circle?",
       "choices": {
         "A": "(-3, 1), and radius is 5",
         "B": "(3, -1), and radius is 5",
@@ -83,7 +83,7 @@
       "unit": 8,
       "answer": "D",
       "explanation": "To find the center and radius, we need to rewrite the equation in standard form. Completing the square for both x and y terms gives us (x - 3)² + (y + 1)² = 24. Thus, the center is (3, -1) and the radius is √24.",
-      "image": ""
+      "image": "images/none.png"
     },
     {
       "id": 7,
@@ -120,7 +120,7 @@
         "A": "103",
         "B": "151",
         "C": "34",
-        "D": "11,"
+        "D": "11"
       },
       "unit": 10,
       "answer": "C",
