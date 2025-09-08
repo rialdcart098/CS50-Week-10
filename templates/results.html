@@ -1,0 +1,17 @@
+{% extends layout.html %}
+
+{% block content %}
+<body>
+    <div id="results-container">
+        <div id="results-head">
+            <h1 class="title">Results</h1>
+        </div>
+        <div id="results-main">
+            <h1>Congratulations!</h1>
+            <h2>Your Score: {{ score }}</h2>
+            <button id="back">Back to Quizzes</button>
+            <button id="home">See More</button>
+        </div>
+    </div>
+</body>
+{% endblock %}

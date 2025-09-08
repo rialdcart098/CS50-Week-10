@@ -49,9 +49,9 @@ function showQuiz() {
             body: JSON.stringify(res)
         })
         .then(response => response.json())
-          .then(response => {
+        .then(response => {
               if (response.status === 'ok') {
-                    window.location.href = `/results/${response.result_id}`;
+                    window.location.href = `/results${response.testID}`;
                 } else {
                     alert('Error saving results.');
               }
