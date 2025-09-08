@@ -31,6 +31,12 @@ def user_data(username):
     cursor.execute('SELECT * FROM users WHERE username = ?', (username,))
     return cursor.fetchone()
 
+def unit_fetch(unitNum):
+    db = get_db()
+    cur = db.cursor()
+    cur.execute('SELECT COUNT(*) FROM user_progress WHERE user_id = ? AND unit_id = ?', (session['id'], unitNum))
+    return cur.fetchone()[0]
+
 def valid_username(username=None):
     if not username:
         return 1

@@ -7,6 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from helpers import login_required, get_db, close_db, user_data, valid_username, valid_password
 from datetime import datetime
 from routes.quiz import quiz_bp
+from routes.results import results_bp
 import sqlite3
 
 app = Flask(__name__)
@@ -16,7 +17,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 app.register_blueprint(quiz_bp)
-
+app.register_blueprint(results_bp)
 
 @app.teardown_appcontext
 def teardown(exception):

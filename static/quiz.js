@@ -1,5 +1,8 @@
 let quiz = null;
 let i = 0;
+let userScore = 0;
+let units = [];
+let unitCorrect = [];
 buttonPressed = false;
 document.addEventListener('DOMContentLoaded', () => {
   const pathParts = window.location.pathname.split('/');
@@ -32,8 +35,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function showQuiz() {
     if (!quiz || i >= quiz.questions.length) {
-        window.location.href="/results";
-        return;
+        const res = {
+            totalQuestions: quiz.questions.length,
+            questionsCorrect: userScore,
+            subject: quiz.subject,
+            exam: quiz.exam,
+            units: units,
+            unitsCorrect: unitCorrect
+        };
+        fetch('/results', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(res)
+        })
+        .then(response => response.json())
+          .then(response => {
+              if (response.status === 'ok') {
+                    window.location.href = `/results/${response.result_id}`;
+                } else {
+                    alert('Error saving results.');
+              }
+        })
     }
 
     let title = document.querySelector('.title');
@@ -47,7 +69,7 @@ function showQuiz() {
     }
     let optionsDiv = document.querySelector('.quiz-options');
     optionsDiv.innerHTML = '';
-
+    units[quiz.questions[i].unit] = (units[quiz.questions[i].unit] || 0) + 1;
     buttonPressed = false;
 
     const choices = quiz.questions[i].choices;
@@ -93,6 +115,8 @@ function answerCheck(selected, button) {
 
     if (selected === correct) {
         button.classList.replace('quiz-option', 'right');
+        unitCorrect[quiz.questions[i].unit] = (unitCorrect[quiz.questions[i].unit] || 0) + 1;
+        userScore++;
     } else {
         button.classList.replace('quiz-option', 'wrong');
     }

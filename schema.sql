@@ -9,16 +9,13 @@ CREATE TABLE users (
 
 CREATE TABLE subjects (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_id INTEGER NOT NULL,
-    subject TEXT NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    subject TEXT NOT NULL
 );
 
 CREATE TABLE units (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     subject_id INTEGER NOT NULL,
     unit TEXT NOT NULL,
-    unit_percentage FLOAT,
     FOREIGN KEY (subject_id) REFERENCES subjects(id)
 );
 
@@ -28,17 +25,47 @@ CREATE TABLE tests (
     test TEXT NOT NULL,
     score INTEGER,
     test_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    subject_id TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (subject_id) REFERENCES subjects(id)
 );
-
 CREATE TABLE user_progress (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_id INTEGER NOT NULL,
     subject_id INTEGER NOT NULL,
     unit_id INTEGER NOT NULL,
-    progress_percentage FLOAT,
-    last_accessed TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    questionsDone INTEGER NOT NULL,
+    questionsCorrect INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (subject_id) REFERENCES subjects(id),
     FOREIGN KEY (unit_id) REFERENCES units(id)
 );
+
+INSERT INTO subjects (subject) VALUES ('algebra1');
+INSERT INTO subjects (subject) VALUES ('geometry');
+INSERT INTO subjects (subject) VALUES ('algebra2');
+
+INSERT INTO units (subject_id, unit) VALUES
+    (1, 'Number & Quantity'),
+    (1, 'Algebra'),
+    (1, 'Functions'),
+    (1, 'Statistics & Probability');
+
+INSERT INTO units (subject_id, unit) VALUES
+    (2, 'Congruence'),
+    (2, 'Similarity'),
+    (2, 'Right Triangles & Trigonometry'),
+    (2, 'Circles'),
+    (2, 'Expressing Geometric Properties with Equations'),
+    (2, 'Geometric Measurement & Dimension'),
+    (2, 'Modeling with Geometry');
+
+INSERT INTO units (subject_id, unit) VALUES
+    (3, 'Polynomial Functions'),
+    (3, 'Rational Functions'),
+    (3, 'Exponential & Logarithmic Functions'),
+    (3, 'Trigonometric Functions');
+
+
+
+

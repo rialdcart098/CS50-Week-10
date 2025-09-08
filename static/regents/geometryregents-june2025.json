@@ -1,5 +1,6 @@
 {
   "exam": "Geometry Regents - June 2025",
+  "subject_id": "2",
   "questions": [
     {
       "id": 1,
@@ -10,7 +11,7 @@
         "C": "54",
         "D": "162"
       },
-      "unit": 7,
+      "unit": 6,
       "answer": "C",
       "explanation": "Perimeter scales by the scale factor: 18 × 3 = 54.",
       "image": "images/none.png"
@@ -24,7 +25,7 @@
         "C": "555",
         "D": "590"
       },
-      "unit": 8,
+      "unit": 7,
       "answer": "C",
       "explanation": "For tangent, use TOA (tan = opposite/adjacent). This makes tan(70.19°) / 1 = height / 200 ⇒ cross multiply to get height = tan(70.19°) * 200 ⇒ height ≈ 555",
       "image": "images/q2.png"
@@ -38,7 +39,7 @@
         "C": "Reflect ΔEQA over the x-axis, then rotate 90° clockwise about the origin",
         "D": "Translate ΔEQA 10 units right and then reflect over the line x = -1"
       },
-      "unit": 3,
+      "unit": 5,
       "answer": "A",
       "explanation": "When looking for the answer, you must remember to also keep the orientation of the triangle the same, while also keeping the same shape. The only answer choice that does this is A.",
       "image": "images/q3.png"
@@ -52,7 +53,7 @@
         "C": "6",
         "D": "4"
       },
-      "unit": 1,
+      "unit": 5,
       "answer": "B",
       "explanation": "When doing this type of question, remember the third side must be greater than the difference of the two sides and less than the sum of the two sides: 8 - 2 < x < 8 + 2 ⇒ 6 < x < 10. So, the only possible answer is 7.",
       "image": "images/none.png"
@@ -66,10 +67,10 @@
         "C": "144",
         "D": "160"
       },
-      "unit": 2,
+      "unit": 9,
       "answer": "B",
       "explanation": "A regular octagon has 8 sides, so the angle of rotation that maps it onto itself is 360°/8 = 45°. However, since we are looking for an angle that will carry the octagon onto itself, we need to consider multiples of 45°. The correct answer is 90° (which is 2 × 45°).",
-      "image": "imgaes/none.png"
+      "image": "images/none.png"
     },
     {
       "id": 6,
@@ -94,7 +95,7 @@
         "C": "40",
         "D": "37"
       },
-      "unit": 8,
+      "unit": 7,
       "answer": "C",
       "explanation": "Using the sine function: sin(∠H) = opposite/hypotenuse = FS/HF = 23/30. Therefore, ∠H = sin^(-1)(23/30) ≈ 40°.",
       "image": "images/q7.png"
@@ -108,9 +109,9 @@
         "C": "44",
         "D": "52"
       },
-      "unit": 6,
+      "unit": 10,
       "answer": "B",
-      "explanation": "To get EF, you can do 1/2 of CB, as midsegments are half the length of the side they are parallel to, resulting in a length of 7. This also makes DA 7 as DA is parallel to CB in a parallelogram, and in a parallelogram, opposite sides are congruent. To get AF, it is just the same as FB as it is split in half by line EF, which is also 9. This also makes DE 9 because DE is parallel to CA. Adding all the sides, you get 32 as the perimeter..",
+      "explanation": "To get EF, you can do 1/2 of CB, as midsegments are half the length of the side they are parallel to, resulting in a length of 7. This also makes DA 7 as DA is parallel to CB in a parallelogram, and in a parallelogram, opposite sides are congruent. To get AF, it is just the same as FB as it is split in half by line EF, which is also 9. This also makes DE 9 because DE is parallel to CA. Adding all the sides, you get 32 as the perimeter.",
       "image": "images/q8.png"
     },
     {
@@ -122,7 +123,7 @@
         "C": "34",
         "D": "11"
       },
-      "unit": 10,
+      "unit": 11,
       "answer": "C",
       "explanation": "The volume V of a pyramid is given by V = (1/3)Bh, where B is the area of the base and h is the height. The area of the square base is 6 cm × 6 cm = 36 cm². Therefore, the volume of the candle is V = (1/3)(36 cm²)(10 cm) = 120 cm³. If the candle burns at a rate of 3.5 cm³ per hour, the number of hours it can burn is 120 cm³ / 3.5 cm³/hour ≈ 34.29 hours, which rounds to approximately 34 hours.",
       "image": "images/q9.png"
