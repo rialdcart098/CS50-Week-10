@@ -2,8 +2,34 @@
 
 {% block content %}
 <body class="main-body">
-    <div>
-    Hey
+<div class="test-table">
+    <table>
+        <thead>
+            <tr>
+                <th>Test ID</th>
+                <th>Test Name</th>
+                <th>Subject</th>
+                <th>Number of Questions</th>
+                <th>Time Limit (minutes)</th>
+                <th>Action</th>
+            </tr>
+            {% for test in tests %}
+            <tr>
+                <td>{{ test.id }}</td>
+                <td>{{ test.name }}</td>
+                <td>{{ test.subject }}</td>
+                <td>{{ test.num_questions }}</td>
+                <td>{{ test.time_limit }}</td>
+                <td><a href="/take_test/{{ test.id }}">Take Test</a></td>
+            </tr>
+            {% endfor %}
+        </thead>
+        <tbody>
+        <tr>
+            <td colspan="6">No tests available.</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 

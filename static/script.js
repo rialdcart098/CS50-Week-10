@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
         quizList.innerHTML = "";
         const a = document.createElement("a");
         a.href = `/quizzes/${fileName.replace('.json','')}`;
+        // try a.href = `${window.location.origin}/quizzes/${fileName.replace('.json','')}`; instead on gh codespaces.
         a.textContent = data.exam;
         quizList.appendChild(a);
     }

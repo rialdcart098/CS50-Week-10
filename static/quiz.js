@@ -38,7 +38,7 @@ function showQuiz() {
         const res = {
             totalQuestions: quiz.questions.length,
             questionsCorrect: userScore,
-            subject: quiz.subject,
+            subject: quiz.subject_id,
             exam: quiz.exam,
             units: units,
             unitsCorrect: unitCorrect
@@ -51,7 +51,7 @@ function showQuiz() {
         .then(response => response.json())
           .then(response => {
               if (response.status === 'ok') {
-                    window.location.href = `/results/${response.result_id}`;
+                    window.location.href = `/results`;
                 } else {
                     alert('Error saving results.');
               }

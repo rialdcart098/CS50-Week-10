@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+{% block content %}
+<body id="res-body">
+    <div id="res-container">
+        <div id="res-cont">
+            <h1>Congratulations!</h1>
+            <h2>You have scored a {{ score }}%!</h2>
+        </div>
+        <div id="res-buttons">
+            <button class="res-btn" onclick="location.href='/'">Go Home</button>
+            <button class="res-btn" onclick="location.href='/quizzes'">Back to Quizzes</button>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
