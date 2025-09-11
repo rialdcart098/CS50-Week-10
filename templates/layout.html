@@ -15,20 +15,23 @@
     <div class="nav-side">
         <img src="/static/bg_images/favicon.svg">
         {% if session['id'] %}
-            <a href="/">Home</a>
-            <a href="/quizzes">Quizzes</a>
-            <a href="/review">Review</a>
-            <a href="/logout">Log Out</a>
+            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/quizzes">Quizzes</a>
+            <a class="nav-link" href="/review">Review</a>
+            <a class="nav-link" href="/logout">Log Out</a>
 <!--    TBA    <a href="/profile">Profile</a>-->
 <!--        <a href="/logout">Logout</a>-->
         {% else %}
-            <a href="/login">Login</a>
-            <a href="/signup">Register</a>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/signup">Register</a>
         {% endif %}
     </div>
     <div class="nav-side">
-        <a href="/support">Support</a>
-        <a href="/contribute">Contribute</a>
+        <a class="nav-link" href="https://github.com/rialdcart098/CS50-Week-10">
+            <img src="/static/bg_images/Vector.svg" width="30px" height="30px" alt="GitHub Logo">
+        </a>
+        <a class="nav-link" href="/support">Support</a>
+        <a class="nav-link" href="/contribute">Contribute</a>
     </div>
 
 </nav>
