@@ -2,34 +2,42 @@
 
 {% block content %}
 <body class="main-body">
-<div class="test-table">
-    <table>
-        <thead>
-            <tr>
-                <th>Test ID</th>
-                <th>Test Name</th>
-                <th>Subject</th>
-                <th>Number of Questions</th>
-                <th>Time Limit (minutes)</th>
-                <th>Action</th>
-            </tr>
-            {% for test in tests %}
-            <tr>
-                <td>{{ test.id }}</td>
-                <td>{{ test.name }}</td>
-                <td>{{ test.subject }}</td>
-                <td>{{ test.num_questions }}</td>
-                <td>{{ test.time_limit }}</td>
-                <td><a href="/take_test/{{ test.id }}">Take Test</a></td>
-            </tr>
-            {% endfor %}
-        </thead>
-        <tbody>
-        <tr>
-            <td colspan="6">No tests available.</td>
-        </tr>
-        </tbody>
-    </table>
+<div class="main-shit">
+    <div class="info" id="tst-container">
+        <table id="test-table">
+            <caption>My Test Results</caption>
+            <thead>
+                <tr>
+                    <th>Test</th>
+                    <th>Score</th>
+                    <th>Subject</th>
+                    <th>Number of Questions</th>
+                    <th>Time of Test</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for test in tests %}
+                    <tr class="{% if loop.index0 % 2 == 0 %}even{% else %}odd{% endif %}">
+                        <td>{{ test.test }}</td>
+                        <td>{{ test.score }}%</td>
+                        <td>{{ test.subject_name }}</td>
+                        <td>{{ test.question_amount }}</td>
+                        <td>{{ test.test_date }}</td>
+
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="7" class="even">No tests taken yet.</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="7"></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 </div>
 </body>
 

@@ -19,9 +19,11 @@ Session(app)
 app.register_blueprint(quiz_bp)
 app.register_blueprint(results_bp)
 
+
 @app.teardown_appcontext
 def teardown(exception):
     close_db(exception)
+
 
 @app.after_request
 def after_request(response):
@@ -31,16 +33,22 @@ def after_request(response):
     response.headers["Pragma"] = "no-cache"
     return response
 
+
 @app.route("/logout")
 @login_required
 def logout():
     session.clear()
     return redirect("/login")
 
+
 @app.route("/")
-@login_required #Work on this once you get home
+@login_required  # Work on this once you get home
 def index():
-    return render_template("index.html", page="Home")
+    db = get_db()
+    tests = db.execute("SELECT * FROM tests WHERE user_id = ? ORDER BY test_date DESC", (session['id'],))
+    db.commit()
+    return render_template("index.html", tests=tests)
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -53,19 +61,20 @@ def login():
         password = request.form["password"]
         if not user_data(username):
             return render_template("login.html",
-                page="login",
-                error=Markup(
-                    f'User {escape(username)} does not exist. '
-                    f'<a href="{url_for("signup")}" style="color:#ff0000; text-decoration:none;">register here.</a>'
-                ))
+                                   page="login",
+                                   error=Markup(
+                                       f'User {escape(username)} does not exist. '
+                                       f'<a href="{url_for("signup")}" style="color:#ff0000; text-decoration:none;">register here.</a>'
+                                   ))
         userData = user_data(username)
         if not check_password_hash(userData["password"], password):
             return render_template("login.html",
-                page="login",
-                error=Markup('Wrong username/password. Try again.'))
+                                   page="login",
+                                   error=Markup('Wrong username/password. Try again.'))
         session["id"] = userData["id"]
         return redirect("/")
     return render_template("login.html")
+
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -75,7 +84,7 @@ def signup():
         ERRORS = {
             1: "username is missing",
             2: Markup(f'User {escape(request.form["username"])} already exists. '
-                f'<a href="{url_for("login")}">log in here</a>" if this is you.'),
+                      f'<a href="{url_for("login")}">log in here</a>" if this is you.'),
             3: "username too long/short (3 < username < 20)",
             4: "username can't have symbols.",
 
@@ -97,32 +106,34 @@ def signup():
 
         if valid_username(request.form["username"]) is not True:
             return render_template("signup.html",
-                page="Sign Up",
-                error=ERRORS[valid_username(request.form["username"])])
-        
+                                   page="Sign Up",
+                                   error=ERRORS[valid_username(request.form["username"])])
+
         try:
             birth = datetime.strptime(request.form["birth"], "%Y-%m-%d").date()
         except ValueError:
             return render_template('signup.html',
-                page="signup",
-                error=Markup(
-                    f'Birth date {escape(request.form["birth"])} is not valid. '
-                ))
+                                   page="signup",
+                                   error=Markup(
+                                       f'Birth date {escape(request.form["birth"])} is not valid. '
+                                   ))
         if valid_password(request.form["password"], request.form["confirm_password"]) is not True:
             return render_template('signup.html',
-                page="signup",
-                error=ERRORS[valid_password(request.form["password"], request.form["confirm_password"])])
+                                   page="signup",
+                                   error=ERRORS[
+                                       valid_password(request.form["password"], request.form["confirm_password"])])
 
         db = get_db()
         user_id = db.execute("INSERT INTO users (username, password, birth) VALUES (?, ?, ?)",
-            (request.form["username"], generate_password_hash(request.form["password"]), birth)
-            ).lastrowid
+                             (request.form["username"], generate_password_hash(request.form["password"]), birth)
+                             ).lastrowid
         db.commit()
 
         session["id"] = user_id
         return redirect("/")
 
     return render_template("signup.html", page="signup")
+
 
 if __name__ == "__main__":
     app.run(debug=True)

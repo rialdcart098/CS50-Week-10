@@ -15,11 +15,17 @@ def results():
     correctAnswers = results['questionsCorrect']
     score = round((correctAnswers / totalQuestion) * 100)
     db = get_db()
-    cur = db.execute("INSERT INTO tests (user_id, test, score, subject_id) VALUES (?, ?, ?, ?)", (
+    subject = db.execute(
+        "SELECT subject FROM subjects WHERE id = ?", (results['subject'],)
+    )
+    cur = db.execute("INSERT INTO tests (user_id, test, score, subject_id, subject_name, question_amount) VALUES (?, ?, ?, ?, ?, ?)", (
         session['id'],
         results['exam'],
         score,
-        results['subject']
+        results['subject'],
+        subject.fetchone()['subject'],
+        totalQuestion
+
     ))
     unitsDone = results['units']
     unitsCorrect = results['unitsCorrect']

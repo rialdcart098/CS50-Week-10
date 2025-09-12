@@ -433,10 +433,6 @@ button[class="quiz-button"]:hover {
     font-family: "Manrope", sans-serif;
     color: #ff8a77;
 }
-
-
-
-
 #res-body {
     font-optical-sizing: auto;
     font-style: normal;
@@ -496,4 +492,47 @@ button[class="quiz-button"]:hover {
     white-space: normal;
     word-break: break-word;
     text-align: center;
+}
+.main-shit {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 5fr 2fr;
+  height: calc(100vh - 4rem - 3rem - 4rem);
+  padding: 1rem;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+table {
+    border: none;
+    border-collapse: collapse;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px #0c0d0c;
+}
+caption {
+    background-color: #79cb63;
+    border: none;
+    border-top-right-radius: 1rem;
+    border-top-left-radius: 1rem;
+    font-size: 2rem;
+}
+thead {
+    background-color: #79cb63;
+}
+td, th {
+    border-left: 2px solid #999;
+  border-right: 2px solid #999;
+    text-align: center;
+}
+.odd {
+    background-color: #ccc;
+}
+.even {
+    background-color: #f0f0f0;
+}
+tfoot td {
+    border: none;
+    border-bottom-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    background-color: #0f9048;
+    height: .5rem;
 }

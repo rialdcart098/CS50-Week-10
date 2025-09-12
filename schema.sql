@@ -26,7 +26,10 @@ CREATE TABLE tests (
     score INTEGER,
     test_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     subject_id TEXT NOT NULL,
+    subject_name TEXT NOT NULL,
+    question_amount INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (subject_name) REFERENCES subjects(subject),
     FOREIGN KEY (subject_id) REFERENCES subjects(id)
 );
 CREATE TABLE user_progress (
