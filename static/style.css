@@ -498,6 +498,7 @@ button[class="quiz-button"]:hover {
   grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 5fr 2fr;
   height: calc(100vh - 4rem - 3rem - 4rem);
+    gap: 1rem;
   padding: 1rem;
   box-sizing: border-box;
   overflow: hidden;
@@ -535,4 +536,25 @@ tfoot td {
     border-bottom-left-radius: 1rem;
     background-color: #0f9048;
     height: .5rem;
+}
+.supportbody {
+    font-optical-sizing: auto;
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+}
+.support-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 4rem - 3rem - 4rem);
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
 }

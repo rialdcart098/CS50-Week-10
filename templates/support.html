@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
 
+{% block content %}
+<body class="supportbody">
+    <div class="support-container">
+        <h1 class="support-title">Support</h1>
+        <p class="support-text">Found an issue in our quizzes? Report them here. We will try to fix the problem as soon as possible.</p>
+        <div class="donation-options">
+            <a href="https://forms.gle/o2cx5qsi3XdwHrYZ9" target="_blank" class="donate-button">Google Form</a>
+        </div>
+    </div>
 </body>
-</html>
+{% endblock %}

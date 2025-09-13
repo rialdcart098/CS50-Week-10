@@ -8,6 +8,8 @@ from helpers import login_required, get_db, close_db, user_data, valid_username,
 from datetime import datetime
 from routes.quiz import quiz_bp
 from routes.results import results_bp
+from routes.support import support_bp
+from routes.contribute import contribute_bp
 import sqlite3
 
 app = Flask(__name__)
@@ -17,7 +19,9 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 app.register_blueprint(quiz_bp)
+app.register_blueprint(support_bp)
 app.register_blueprint(results_bp)
+app.register_blueprint(contribute_bp)
 
 
 @app.teardown_appcontext
@@ -57,7 +61,7 @@ def login():
         for field in ("username", "password"):
             if not request.form[field]:
                 return render_template("login.html", page="login", error=f"Please fill out your {field}.")
-        username = request.form["username"]
+        username = request.form["username"].upper()
         password = request.form["password"]
         if not user_data(username):
             return render_template("login.html",
@@ -104,7 +108,7 @@ def signup():
             if not request.form[field]:
                 return render_template("signup.html", page="Sign Up", error=f"Missing field: {field}")
 
-        if valid_username(request.form["username"]) is not True:
+        if valid_username(request.form["username"].upper()) is not True:
             return render_template("signup.html",
                                    page="Sign Up",
                                    error=ERRORS[valid_username(request.form["username"])])
@@ -125,7 +129,7 @@ def signup():
 
         db = get_db()
         user_id = db.execute("INSERT INTO users (username, password, birth) VALUES (?, ?, ?)",
-                             (request.form["username"], generate_password_hash(request.form["password"]), birth)
+                             (request.form["username"].upper(), generate_password_hash(request.form["password"]), birth)
                              ).lastrowid
         db.commit()
 

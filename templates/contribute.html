@@ -1,10 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
 
+{% block content %}
+<body class="supportbody">
+    <div class="support-container">
+        <h1 class="support-title">Contribute</h1>
+        <p class="support-text">Interested in helping but want to do more than just pull requests for our Github? We would love help. </p>
+        <div class="donation-options">
+            <a href="https://forms.gle/KEG1LmJnJAjCcEds8" target="_blank" class="donate-button">Submit this form if you are interested.</a>
+        </div>
+    </div>
 </body>
-</html>
+{% endblock %}
